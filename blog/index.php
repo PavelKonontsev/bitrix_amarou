@@ -1,0 +1,180 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Blog");
+?>
+
+<!-- ========================
+   page title
+=========================== -->
+<? if ($APPLICATION->GetCurPage(false) == '/blog/'): ?>
+
+<section class="page-title page-title-layout9 bg-overlay bg-parallax text-center">
+  <div class="bg-img"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/page-titles/9.jpg" alt="background"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 offset-xl-3">
+        <h1 class="pagetitle__heading">Our Blog</h1>
+        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumb", Array(
+            "PATH" => "",   // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+                "SITE_ID" => "s1",  // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+                "START_FROM" => "0",    // Номер пункта, начиная с которого будет построена навигационная цепочка
+            ),
+            false
+        );?>
+      </div><!-- /.col-xl-4 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.page-title -->
+
+<? else: ?>
+
+<!-- ========================
+   page title
+=========================== -->
+<section class="page-title page-title-layout11 text-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumb", Array(
+            "PATH" => "",   // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+                "SITE_ID" => "s1",  // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+                "START_FROM" => "0",    // Номер пункта, начиная с которого будет построена навигационная цепочка
+            ),
+            false
+        );?>
+      </div><!-- /.col-xl-6 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.page-title -->
+
+<? endif; ?>
+
+<!-- ======================
+  Blog Grid
+========================= -->
+<section class="blog-grid pb-60">
+  <div class="container">
+
+    <?$APPLICATION->IncludeComponent(
+	"bitrix:news", 
+	"blog", 
+	array(
+		"ADD_ELEMENT_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "Y",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"BROWSER_TITLE" => "-",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"DETAIL_ACTIVE_DATE_FORMAT" => "j F Y",
+		"DETAIL_DISPLAY_BOTTOM_PAGER" => "N",
+		"DETAIL_DISPLAY_TOP_PAGER" => "N",
+		"DETAIL_FIELD_CODE" => array(
+			0 => "NAME",
+			1 => "TAGS",
+			2 => "PREVIEW_TEXT",
+			3 => "PREVIEW_PICTURE",
+			4 => "DATE_CREATE",
+			5 => "",
+		),
+		"DETAIL_PAGER_SHOW_ALL" => "N",
+		"DETAIL_PAGER_TEMPLATE" => "",
+		"DETAIL_PAGER_TITLE" => "Страница",
+		"DETAIL_PROPERTY_CODE" => array(
+			0 => "category",
+			1 => "",
+		),
+		"DETAIL_SET_CANONICAL_URL" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "8",
+		"IBLOCK_TYPE" => "blog",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",
+		"LIST_FIELD_CODE" => array(
+			0 => "NAME",
+			1 => "TAGS",
+			2 => "PREVIEW_TEXT",
+			3 => "PREVIEW_PICTURE",
+			4 => "DATE_CREATE",
+			5 => "",
+		),
+		"LIST_PROPERTY_CODE" => array(
+			0 => "category",
+			1 => "",
+		),
+		"MESSAGE_404" => "",
+		"META_DESCRIPTION" => "-",
+		"META_KEYWORDS" => "-",
+		"NEWS_COUNT" => "3",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => "page_nav",
+		"PAGER_TITLE" => "Новости",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"SEF_FOLDER" => "/blog/",
+		"SEF_MODE" => "Y",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "Y",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC",
+		"STRICT_SECTION_CHECK" => "N",
+		"USE_CATEGORIES" => "N",
+		"USE_FILTER" => "Y",
+		"USE_PERMISSIONS" => "N",
+		"USE_RATING" => "N",
+		"USE_RSS" => "N",
+		"USE_SEARCH" => "Y",
+		"USE_SHARE" => "Y",
+		"COMPONENT_TEMPLATE" => "blog",
+		"FILTER_NAME" => "",
+		"FILTER_FIELD_CODE" => array(
+			0 => "TAGS",
+			1 => "",
+		),
+		"FILTER_PROPERTY_CODE" => array(
+			0 => "category",
+			1 => "",
+		),
+		"SHARE_HIDE" => "N",
+		"SHARE_TEMPLATE" => "",
+		"SHARE_HANDLERS" => array(
+			0 => "facebook",
+			1 => "twitter",
+			2 => "vk",
+		),
+		"SHARE_SHORTEN_URL_LOGIN" => "",
+		"SHARE_SHORTEN_URL_KEY" => "",
+		"SEF_URL_TEMPLATES" => array(
+			"news" => "",
+			"section" => "",
+			"detail" => "#ELEMENT_CODE#/",
+			"search" => "search/",
+		)
+	),
+	false
+);
+    ?>
+
+  </div><!-- /.container -->
+</section><!-- /.blog Grid -->
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
