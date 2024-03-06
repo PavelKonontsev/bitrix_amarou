@@ -36,7 +36,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     =========================== -->
     <header class="header header-light header-layout1">
       <div class="header-topbar d-none d-xl-block">
-        <div class="container-fluid">
+        <div class="container-fluid px-0">
           <div class="row">
             <div class="col-sm-12 col-md-7 col-lg-7">
               <div class="d-flex flex-wrap justify-content-between">

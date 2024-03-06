@@ -69,21 +69,20 @@ $this->setFrameMode(true);
     </div><!-- /.row -->
   </div><!-- /.container -->
 
-
+<? if ($arResult['SLIDER_IMAGES']): ?>
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="portfolio-slider carousel-arrows-light slick-carousel mb-60"
           data-slick='{"slidesToShow": 1, "arrows": true, "dots": true, "centerMode": true, "centerPadding": "300px","responsive": [ {"breakpoint": 992, "settings": {"centerPadding": "40px"}}]}'>
-          <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/portfolio/slider/1.jpg" alt="slider">
-          <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/portfolio/slider/5.jpg" alt="slider">
-          <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/portfolio/slider/4.jpg" alt="slider">
-          <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/portfolio/slider/2.jpg" alt="slider">
-          <img src="<?= SITE_TEMPLATE_PATH ?>/assets/images/portfolio/slider/3.jpg" alt="slider">
+          <? foreach ($arResult['SLIDER_IMAGES'] as $imgItem): ?>
+          <img src="<?= $imgItem['SRC'] ?>" alt="<?= $imgItem['DESCRIPTION'] ?>">
+          <? endforeach; ?>
         </div>
       </div>
     </div>
   </div>
+<? endif; ?>
 
 
 <? if ($arResult['REVIEW']): ?>

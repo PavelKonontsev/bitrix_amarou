@@ -1,5 +1,5 @@
 <?
-
+#Есть отзыв получим данные
 if ($arResult['PROPERTIES']['review']['VALUE']) {
 
     $arFilter = array(
@@ -21,6 +21,16 @@ if ($arResult['PROPERTIES']['review']['VALUE']) {
     $res['PREVIEW_PICTURE'] = CFile::GetByID($res['PREVIEW_PICTURE'])->Fetch();
 
     $arResult['REVIEW'] = $res;
+
+}
+#Есть слайдер получим данные картинок
+if ($arResult['PROPERTIES']['images']['VALUE']) {
+
+    $picts = [];
+    foreach($arResult['PROPERTIES']['images']['VALUE'] as $imgID) {
+        array_push($picts, CFile::GetByID($imgID)->Fetch());
+    }
+    $arResult['SLIDER_IMAGES'] = $picts;
 
 }
 
